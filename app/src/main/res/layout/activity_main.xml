@@ -46,7 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/temperatureLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:id="@+id/linearLayout">
 
         <LinearLayout
             android:orientation="vertical"
@@ -130,14 +131,27 @@
         android:layout_above="@+id/locationLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
-        android:src="@mipmap/refresh" />
+        android:src="@mipmap/refresh"
+        android:adjustViewBounds="false"
+        android:background="@android:color/holo_orange_light"/>
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
-        android:layout_alignTop="@+id/refreshButton"
+        android:layout_alignBottom="@+id/refreshButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Getting current forecast..."
+        android:id="@+id/summaryLabel"
+        android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:nestedScrollingEnabled="false" />
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:textColor="@color/transparent_white"/>
 
 </RelativeLayout>

@@ -17,6 +17,7 @@ public class CurrentWeather {
     private String mSummary;
     private String mTimeZone;
 
+
     public String getIcon() {
         return mIcon;
     }
@@ -79,24 +80,27 @@ public class CurrentWeather {
         return formatDate;
     }
 
-    public double getTemperature() {
-        return mTemperature;
+    public int getTemperature() {
+        if (mTimeZone.startsWith("Europe")) {
+            mTemperature = (mTemperature - 32.0)/1.8;
+        }
+        return (int) Math.round(mTemperature);
     }
 
     public void setTemperature(double temperature) {
         mTemperature = temperature;
     }
 
-    public double getHumidity() {
-        return mHumidity;
+    public int getHumidity() {
+        return (int) Math.round(mHumidity);
     }
 
     public void setHumidity(double humidity) {
         mHumidity = humidity;
     }
 
-    public double getPrecipChance() {
-        return mPrecipChance;
+    public int getPrecipChance() {
+        return (int) Math.round(mPrecipChance);
     }
 
     public void setPrecipChance(double precipChance) {
