@@ -149,13 +149,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDisplay() {
-        mTimeLabel.setText(mCurrentWeather.getFormattedTime());
-        mHumidityValue.setText(mCurrentWeather.getHumidity());
+        mTimeLabel.setText("At " + mCurrentWeather.getFormattedTime() + " it will be");
+        mHumidityValue.setText(mCurrentWeather.getHumidity()+"");
         mImageLabel.setImageResource(mCurrentWeather.getIconId());
         mLocationLabel.setText(mCurrentWeather.getTimeZone());
-        mPrecipValue.setText(mCurrentWeather.getPrecipChance());
+        mPrecipValue.setText(mCurrentWeather.getPrecipChance()+"%");
         mSummaryLabel.setText(mCurrentWeather.getSummary());
-        mTemperatureLabel.setText(mCurrentWeather.getTemperature());
+        mTemperatureLabel.setText(mCurrentWeather.getTemperature()+"");
     }
 
     private void alertUserAboutError() {
