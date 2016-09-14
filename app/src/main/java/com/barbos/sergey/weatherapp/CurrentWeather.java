@@ -25,7 +25,7 @@ public class CurrentWeather {
         mIcon = icon;
     }
 
-    public int getIcon() {
+    public int getIconId() {
         int iconId = R.mipmap.clear_day;
 
         if (mIcon.equals("clear-day")) {
@@ -73,7 +73,7 @@ public class CurrentWeather {
     public String getFormattedTime() {
         SimpleDateFormat formatter = new SimpleDateFormat("h:mm a");
         formatter.setTimeZone(TimeZone.getTimeZone(getTimeZone()));
-        Date date = new Date(getTime() + 1000);
+        Date date = new Date(getTime() * 1000);
         String formatDate = formatter.format(date);
 
         return formatDate;

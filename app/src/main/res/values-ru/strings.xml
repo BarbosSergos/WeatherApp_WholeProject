@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Прогноз погоды</string>
+    <string name="error_message">Соединение недоступно</string>
+    <string name="error_title">Сетевая ошибка</string>
+</resources>

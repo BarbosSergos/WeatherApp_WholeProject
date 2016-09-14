@@ -2,5 +2,5 @@
     <string name="app_name">WeatherApp</string>
     <string name="error_title">Network error</string>
     <string name="error_message">Connection is unavailable</string>
-    <string name="dialog_positiveButtonText">OK</string>
+    <string name="dialog_positiveButtonText" translatable="false">OK</string>
 </resources>

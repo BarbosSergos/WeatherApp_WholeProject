@@ -7,6 +7,9 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -14,6 +17,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -26,10 +31,25 @@ public class MainActivity extends AppCompatActivity {
 
     private CurrentWeather mCurrentWeather;
 
+    //Инициализация всех элементов экрана
+    @InjectView(R.id.temperatureLabel) TextView mTemperatureLabel;
+    @InjectView(R.id.degreeLabel) ImageView mDegreeLabel;
+    @InjectView(R.id.timeLabel) TextView mTimeLabel;
+    @InjectView(R.id.locationLabel) TextView mLocationLabel;
+    @InjectView(R.id.imageLabel) ImageView mImageLabel;
+    @InjectView(R.id.humiditiLabel) TextView mHumidityLabel;
+    @InjectView(R.id.humidityValue) TextView mHumidityValue;
+    @InjectView(R.id.precipLabel) TextView mPrecipLabel;
+    @InjectView(R.id.precipValue) TextView mPrecipValue;
+    @InjectView(R.id.refreshButton) ImageView mRefreshButton;
+    @InjectView(R.id.progressBar) ProgressBar mProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.inject(this);
 
         String apiKey = "0754214d1efe06c4a8fb1f5bb7df1104";
         double letitude = 37.8267;
@@ -40,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             //Lets create a http client
             OkHttpClient client = new OkHttpClient();
 
-            //Create here a Request object and after do a call with Call class.
+            //Build here a Request object and after do a call with Call class.
 
             Request request = new Request.Builder()
                     .url(forecastURL)
@@ -49,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             Call call = client.newCall(request);
 
 
-            //Get the responce from forecast.io
+            //Initialize asynchronical call and get the responce from forecast.io
             call.enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -82,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void alertUserAboutError() {
-
+        AlertDialogFragment alert = new AlertDialogFragment();
+        alert.show(getFragmentManager(), "error_dialog");
     }
 
     private CurrentWeather getCurrentJsonDate(String jsonResponce) throws JSONException {
