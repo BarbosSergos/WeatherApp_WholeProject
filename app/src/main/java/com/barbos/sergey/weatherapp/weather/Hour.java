@@ -1,4 +1,4 @@
-package com.barbos.sergey.weatherapp;
+package com.barbos.sergey.weatherapp.weather;
 
 /**
  * Created by Sergey on 15.09.2016.

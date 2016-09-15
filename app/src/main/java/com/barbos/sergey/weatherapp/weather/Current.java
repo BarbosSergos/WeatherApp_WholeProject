@@ -1,4 +1,6 @@
-package com.barbos.sergey.weatherapp;
+package com.barbos.sergey.weatherapp.weather;
+
+import com.barbos.sergey.weatherapp.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +9,7 @@ import java.util.TimeZone;
 /**
  * Created by Sergey on 13.09.2016.
  */
-public class CurrentWeather {
+public class Current {
 
     private String mIcon;
     private Long mTime;
