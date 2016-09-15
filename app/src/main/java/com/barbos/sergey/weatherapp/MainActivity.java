@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateDisplay() {
         mTimeLabel.setText("At " + mCurrentWeather.getFormattedTime() + " it will be");
-        mHumidityValue.setText(mCurrentWeather.getHumidity()+"");
+        mHumidityValue.setText(mCurrentWeather.getHumidity()+"%");
         mImageLabel.setImageResource(mCurrentWeather.getIconId());
         mLocationLabel.setText(mCurrentWeather.getTimeZone());
         mPrecipValue.setText(mCurrentWeather.getPrecipChance()+"%");
