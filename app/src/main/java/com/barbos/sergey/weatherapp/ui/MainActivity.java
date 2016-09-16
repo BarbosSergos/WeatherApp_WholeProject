@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getForecast(letitude, longitude);
+       // getForecast(letitude, longitude);
 
         Log.d(TAG, "Main UI is running");
     }
