@@ -5,4 +5,7 @@
     <string name="dialog_positiveButtonText" translatable="false">OK</string>
     <string name="hourlyBtnText">Hourly</string>
     <string name="dailyBtnText">Daily</string>
+    <string name="title_activity_daily_forecast">DailyForecastActivity</string>
+    <string name="emptyTextView_Text">There is no data to display</string>
+    <string name="dailyForecastHeader">This week\'s weather</string>
 </resources>
