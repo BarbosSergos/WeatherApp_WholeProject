@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
+    public static final String HOURLY_FORECAST = "HOURLY_FORECAST";
 
     private Forecast mForecast;
 
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     @InjectView(R.id.progressBar) ProgressBar mProgressBar;
     @InjectView(R.id.summaryLabel) TextView mSummaryLabel;
     @InjectView(R.id.dailyBtn) Button mDailyBtn;
+    @InjectView(R.id.hourlyBtn) Button mHourlyBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         mDailyBtn.setEnabled(false);
+        mHourlyBtn.setEnabled(false);
         mRefreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void run() {
                                     updateDisplay();
                                     mDailyBtn.setEnabled(true);
+                                    mHourlyBtn.setEnabled(true);
                                 }
                             });
                             Log.v(TAG, jsonResponce);
@@ -276,6 +280,12 @@ public class MainActivity extends AppCompatActivity {
     public void startDailyForecast(View view) {
         Intent intent = new Intent(getApplicationContext(), DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
+        startActivity(intent);
+    }
+
+    public void startHourlyForecast(View view) {
+        Intent intent = new Intent(getApplicationContext(), HourlyForecastActivity.class);
+        intent.putExtra(HOURLY_FORECAST, mForecast.getHourlyForecast());
         startActivity(intent);
     }
 }

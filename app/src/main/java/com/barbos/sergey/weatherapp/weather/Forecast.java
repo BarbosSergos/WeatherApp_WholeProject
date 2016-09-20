@@ -27,8 +27,6 @@ public class Forecast {
         mHourlyForecast = hourlyForecast;
     }
 
-
-    //Выбросим исключение NullPointerException, на случай если прогноз в формате JSON еще не получен, а кнопка Daily уже нажата
     public Day[] getDailyForecast(){
         return mDailyForecast;
     }

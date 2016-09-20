@@ -15,7 +15,9 @@ public class Day implements Parcelable{
     private long mTime;
     private String mTimezone;
     private double mTemperatureMax;
+    private double tmpTempatureMax;
     private String mIcon;
+
 
     public String getSummary() {
         return mSummary;
@@ -43,9 +45,9 @@ public class Day implements Parcelable{
 
     public int getTemperatureMax() {
         if (mTimezone.startsWith("Europe")) {
-            mTemperatureMax = (mTemperatureMax - 32.0)/1.8;
+            tmpTempatureMax = (mTemperatureMax - 32.0)/1.8;
         }
-        return (int) Math.round(mTemperatureMax);
+        return (int) Math.round(tmpTempatureMax);
     }
 
     public void setTemperatureMax(double temperatureMax) {

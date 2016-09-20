@@ -4,7 +4,9 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.barbos.sergey.weatherapp.R;
 import com.barbos.sergey.weatherapp.adapters.DayAdapter;
@@ -28,4 +30,5 @@ public class DailyForecastActivity extends ListActivity {
         DayAdapter dayAdapter = new DayAdapter(getApplicationContext(), mDays);
         setListAdapter(dayAdapter);
     }
+
 }

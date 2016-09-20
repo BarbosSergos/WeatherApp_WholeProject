@@ -172,7 +172,8 @@
             android:id="@+id/hourlyBtn"
             android:layout_weight="1"
             android:background="@color/backgroundBtnColor"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:onClick="startHourlyForecast"/>
 
         <Button
             android:layout_width="match_parent"
